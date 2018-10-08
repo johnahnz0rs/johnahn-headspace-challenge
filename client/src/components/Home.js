@@ -22,8 +22,8 @@ class Home extends React.Component {
 
     componentDidMount() {
         // load random posts on app startup
-        this.default(Math.floor(Math.random() * 3) + 1)
-            .then(this.searchWithParams());
+        this.default(Math.floor(Math.random() * 3) + 1);
+            // .then(this.searchWithParams());
     }
 
     default(chance) {
