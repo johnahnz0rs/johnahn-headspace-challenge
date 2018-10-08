@@ -129,7 +129,7 @@ class Home extends React.Component {
         const eventIndex = this.findPostIndexInArrayById(event.target.id, this.state.searchResults);
         // add post to state.favPosts
         let tempFavPosts = this.state.favoritePosts.slice();
-        tempFavPosts.push(this.state.searchResults[eventIndex]);
+        tempFavPosts.splice(0, 0, this.state.searchResults[eventIndex]);
         this.setState({favoritePosts: tempFavPosts});
         // remove post from state.searchResults
         let tempSearchResults = this.state.searchResults.slice();
