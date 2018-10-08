@@ -23,6 +23,7 @@ class Home extends React.Component {
     componentDidMount() {
         // load random posts on app startup
         this.default(Math.floor(Math.random() * 3) + 1);
+        this.searchWithParams();
     }
 
     default(chance) {
@@ -39,7 +40,7 @@ class Home extends React.Component {
                 this.setState({searchTag: 'audio'});
                 break;
         }
-        this.searchWithParams()
+        // this.searchWithParams()
     }
 
     searchWithParams() {
@@ -77,7 +78,7 @@ class Home extends React.Component {
         for (let i of postsArray) {
             switch (i.type) {
                 case 'text':
-                    createBody = `<div className="post-text">${i.body}</div>`;
+                    createBody = `<div className="post-single-post">${i.body}</div>`;
                     break;
                 case 'photo':
                     createBody = `<p><img src=${i.photos[0].alt_sizes[0].url} alt='' /></p>`;

@@ -23,6 +23,7 @@
 }
 .favorites-header {
     display: block;
+    margin-bottom: 50px;
 }
     .section-fav-posts {
         padding: 10px;
@@ -69,7 +70,7 @@
 .each-fav-post {
     border: 1px solid black;
     border-radius: 5px;
-    margin: 50px 10px;
+    margin: 10px;
     padding: 10px;
 }
 .each-fav-post-content {
@@ -78,8 +79,9 @@
 .img-fav-post {
     width: 100%;
 }
-.post-text {
-    max-height: 350px;
+.post-single-post {
+    max-height: 500px;
+    width: 95%;
 }
 /* end Section - FavoritePosts */
 
