@@ -80,7 +80,7 @@
     width: 100%;
 }
 .post-single-post {
-    max-height: 500px;
+    min-height: 100px;
     width: 95%;
 }
 /* end Section - FavoritePosts */
