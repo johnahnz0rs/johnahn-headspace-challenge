@@ -69,20 +69,21 @@ class Home extends React.Component {
         }
     }
 
+    // create HTML for each post in an array, according to type && setState(searchResults);
+    // return: an array of formatted HTML for each post in that array;
     createResultBodies(postsArray) {
-        // create HTML for each post in an array, according to type;
         let returnedPosts = [],
             createBody;
         for (let i of postsArray) {
             switch (i.type) {
                 case 'text':
-                    createBody = i.body;
+                    createBody = `<div className="post-text">${i.body}</div>`;
                     break;
                 case 'photo':
                     createBody = `<p><img src=${i.photos[0].alt_sizes[0].url} alt='' /></p>`;
                     break;
                 case 'quote':
-                    createBody = `<h4>${i.text}</h4><p>${i.source}<br />type: ${i.type}<br />post_url: ${i.post_url}<br />source_url: ${i.source_url}<br />source_title: ${i.source_title}</p>`;
+                    createBody = `<h4>${i.text}</h4>`;
                     break;
                 case 'link':
                     let blurb = i.excerpt ? i.excerpt : '';

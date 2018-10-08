@@ -78,6 +78,9 @@
 .img-fav-post {
     width: 100%;
 }
+.post-text {
+    max-height: 350px;
+}
 /* end Section - FavoritePosts */
 
 /* Misc */
