@@ -22,7 +22,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         // load random posts on app startup
-        this.default(Math.floor(Math.random() * 3) + 1);
+        this.default(Math.floor(Math.random() * 5) + 1);
             // .then(this.searchWithParams());
     }
 
@@ -34,9 +34,15 @@ class Home extends React.Component {
                 this.setState({searchTag: 'pup'});
                 break;
             case 2:
-                this.setState({searchTag: 'text'});
+                this.setState({searchTag: 'pup'});
                 break;
             case 3:
+                this.setState({searchTag: 'pup'});
+                break;
+            case 4:
+                this.setState({searchTag: 'text'});
+                break;
+            case 5:
                 this.setState({searchTag: 'audio'});
                 break;
         }
