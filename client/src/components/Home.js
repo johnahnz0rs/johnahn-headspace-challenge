@@ -197,7 +197,7 @@ class Home extends React.Component {
             <React.Fragment>
                 <div className="my-container">
                     {/*left-col: search & results*/}
-                    <div className="col col-md-6 col-search-comp">
+                    <div className="col col-sm-6 col-search-comp">
                         {/*Search Bars*/}
                         <div className="row section-search">
                             <div className="col-md-6 search-by">
@@ -217,7 +217,7 @@ class Home extends React.Component {
                     </div>
 
                     {/*right-col: fav posts*/}
-                    <div className="col col-md-6 col-favorites-comp">
+                    <div className="col col-sm-6 col-favorites-comp">
                         <div className="row section-fav-posts">
                             <div className="favorites-header">
                                 <h2>Favorites:</h2>
