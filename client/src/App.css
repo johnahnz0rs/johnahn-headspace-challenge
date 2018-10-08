@@ -1,11 +1,9 @@
-/* Home.js */
-/*.test-class {*/
-    /*background-color: lightblue;*/
-    /*color: white;*/
-    /*border: 3px solid yellow;*/
-    /*padding: 10px;*/
-    /*display: inline-block;*/
-/*}*/
+
+/* Home */
+.my-container {
+    width: 98vw;
+    height: 98vh;
+}
 .col-search-comp {
     border-right: 1px solid black;
     display: inline-block;
@@ -23,13 +21,15 @@
     display: inline-block;
     vertical-align: top;
 }
+.favorites-header {
+    display: block;
+}
     .section-fav-posts {
         padding: 10px;
     }
-/* end Home.js */
+/* end Home */
 
-
-/* Search.js */
+/* Section - Search */
 .search-by {
     display: inline-block;
 }
@@ -47,40 +47,53 @@
 .btn-search {
     padding: 3px 40px;
 }
-/* end Search.js */
+/* end Section - Search */
 
-
-
-/* SearchResults.js */
+/* Section - Search Results */
 .each-search-result {
     border: 1px solid black;
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
+    width: 95%;
 }
 .each-search-result-content {
-
+    width: 95%;
 }
 .img-search-result {
-    width: 100%;
+    width: 95%;
 }
-/* end SearchResults.js */
+/* end Section Search Results */
 
-
-
-/* FavoritePosts.js */
+/* Section - Favorite Posts */
 .each-fav-post {
     border: 1px solid black;
     border-radius: 5px;
-    margin: 20px 10px;
+    margin: 50px 10px;
     padding: 10px;
 }
 .each-fav-post-content {
-
+    width: 95%;
 }
 .img-fav-post {
     width: 100%;
 }
-/* end FavoritePosts.js */
+/* end Section - FavoritePosts */
 
-
+/* Misc */
+img {
+    width: 95%;
+}
+figure {
+    width: 95%;
+}
+video {
+    width: 95%;
+}
+iframe {
+    width: 95%;
+}
+p {
+    width: 95%;
+}
+/* end Misc */

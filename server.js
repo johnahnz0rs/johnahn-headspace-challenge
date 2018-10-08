@@ -21,33 +21,57 @@ let client = tumblr.createClient({
     token_secret: process.env.TOKEN_SECRET
 });
 
-// Make the request
-client.userInfo(function (err, data) {
-    // ...
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('*** got some data back from client.userInfo ***', data);
-    }
-});
-
-// Make the request
-client.blogPosts('peacecorps.tumblr.com', function (err, data) {
-    // ...
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('*** got some data back from client.blogPosts ***', data);
-    }
-});
-
-
 
 // ROUTES
-const mockAPI = 'https://5b8af02d78169a0014daacf8.mockapi.io/';
+// const mockAPI = 'https://5b8af02d78169a0014daacf8.mockapi.io/';
 
-app.get('/api/all-devs', function(req, res) {
-    res.send(`make an api call to ${mockAPI}/devs`);
+app.get('/api/default', function(req, res) {
+    client.taggedPosts('puppy', function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            // console.log('*** doggos on demand ***', data.length);
+            res.json(data);
+        }
+    })
+});
+
+
+app.get('/api/blog/:blog/:tag', (req, res) => {
+    const blogName = `${req.params.blog}.tumblr.com`;
+    const tag = req.params.tag;
+    client.blogPosts(blogName, { tag: tag }, function (err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('*** data response from search by blog and tag ***', blogName, tag);
+            res.json(data.posts);
+        }
+    });
+});
+
+app.get('/api/blog/:blog', (req, res) => {
+    const blog = `${req.params.blog}.tumblr.com`;
+    client.blogPosts(blog, function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('*** data response from search by blog ***', blog);
+            res.json(data.posts);
+        }
+    });
+});
+
+app.get('/api/tag/:tag', (req, res) => {
+    const tag = req.params.tag;
+    client.taggedPosts(tag, function (err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('**** data response from search by tag ***', tag, data);
+            res.json(data);
+        }
+    });
 });
 
 app.get('*', function(req, res) {
@@ -66,20 +90,6 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
 }
-
-
-
-// app.get('/', (req, res) => {
-// 	res.send('hello johnahnz0rs is l33t');
-// });
-
-// app.get('/', function(req, res) {
-//     res.send('GET request to the homepage');
-// });
-//
-// app.post('/', function(req, res) {
-//     res.send('POST request to the homepage');
-// });
 
 
 
