@@ -26,7 +26,9 @@ class Home extends React.Component {
     }
 
     default(chance) {
-        let rando = 0;
+        // randomly show these tags on startup:
+        // puppy - for pictures; text - for anything that might pop up; audio - for audio/video file embeds;
+        let rando = '';
         switch (chance) {
             case 1:
                 rando = 'puppy';
@@ -85,11 +87,12 @@ class Home extends React.Component {
             }
             returnedPosts.push({type: i.type, id: i.id, body: createBody});
         }
-        // after pushing all posts, then setState;
+        // after pushing all posts to tempArray, then setState;
         this.setState({searchResults: returnedPosts});
     }
 
     inputHandler(event) {
+        // handles user inputs: blogName && tag;
         let name = event.target.name,
             value = event.target.value;
         this.setState({[name]: value});
@@ -124,7 +127,6 @@ class Home extends React.Component {
 
     clickHandlerAdd(event) {
         // find this post in state.searchResults
-        console.log('*** event.target.id ***', event.target.id);
         const eventIndex = this.findPostIndexInArrayById(event.target.id, this.state.searchResults);
         // add post to state.favPosts
         let tempFavPosts = this.state.favoritePosts.slice();
@@ -205,7 +207,6 @@ class Home extends React.Component {
                         </div>
                         {/*Search Results*/}
                         <div className="row section-search-results">
-                            {/*{this.state.searchResults && <SectionSearchResults searchResults={this.state.searchResults} />}*/}
                             {searchResultsBody}
                         </div>
                     </div>

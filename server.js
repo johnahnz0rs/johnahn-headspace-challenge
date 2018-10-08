@@ -23,20 +23,18 @@ let client = tumblr.createClient({
 
 
 // ROUTES
-// const mockAPI = 'https://5b8af02d78169a0014daacf8.mockapi.io/';
-
+// load random posts on startup;
 app.get('/api/default', function(req, res) {
     client.taggedPosts('puppy', function(err, data) {
         if (err) {
             console.log(err);
         } else {
-            // console.log('*** doggos on demand ***', data.length);
             res.json(data);
         }
     })
 });
 
-
+// find posts by blogName && tags;
 app.get('/api/blog/:blog/:tag', (req, res) => {
     const blogName = `${req.params.blog}.tumblr.com`;
     const tag = req.params.tag;
@@ -50,6 +48,7 @@ app.get('/api/blog/:blog/:tag', (req, res) => {
     });
 });
 
+// find posts by blogName;
 app.get('/api/blog/:blog', (req, res) => {
     const blog = `${req.params.blog}.tumblr.com`;
     client.blogPosts(blog, function(err, data) {
@@ -62,6 +61,7 @@ app.get('/api/blog/:blog', (req, res) => {
     });
 });
 
+// find posts by tags;
 app.get('/api/tag/:tag', (req, res) => {
     const tag = req.params.tag;
     client.taggedPosts(tag, function (err, data) {
@@ -74,6 +74,7 @@ app.get('/api/tag/:tag', (req, res) => {
     });
 });
 
+// send all other get requests to index.html;
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index,html'));
 });
