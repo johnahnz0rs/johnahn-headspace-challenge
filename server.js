@@ -42,7 +42,6 @@ app.get('/api/blog/:blog/:tag', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log('*** data response from search by blog and tag ***', blogName, tag);
             res.json(data.posts);
         }
     });
@@ -55,7 +54,6 @@ app.get('/api/blog/:blog', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log('*** data response from search by blog ***', blog);
             res.json(data.posts);
         }
     });
@@ -68,7 +66,6 @@ app.get('/api/tag/:tag', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log('**** data response from search by tag ***', tag, data);
             res.json(data);
         }
     });

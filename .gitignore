@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules/
+lib/
 /node_modules
 /client/node_modules
 
@@ -9,7 +10,6 @@ node_modules/
 /coverage
 
 # production
-#/client/build
 
 # misc
 .DS_Store

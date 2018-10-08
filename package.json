@@ -4,7 +4,10 @@
   "scripts": {
     "client": "cd client && npm start",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\""
+    "prodclient": "cd client && npm start",
+    "prodserver": "node server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\"",
+    "prod": "concurrently --kill-others-on-fail \"npm run-script prodserver\" \"npm run-script prodclient\""
   },
   "dependencies": {
     "body-parser": "^1.18.3",

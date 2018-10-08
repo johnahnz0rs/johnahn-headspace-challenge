@@ -11,12 +11,12 @@ class Home extends React.Component {
             searchResults: [],
             favoritePosts: []
         };
-        this.default = this.default.bind(this);
-        this.inputHandler = this.inputHandler.bind(this);
+        this.default = this.default.bind(this); // load random posts on app startup
+        this.inputHandler = this.inputHandler.bind(this); // handles user inputs: blogName && tag;
         this.clickHandlerAdd = this.clickHandlerAdd.bind(this);
         this.clickHandlerRemove = this.clickHandlerRemove.bind(this);
-        this.searchWithParams = this.searchWithParams.bind(this);
-        this.createResultBodies = this.createResultBodies.bind(this);
+        this.searchWithParams = this.searchWithParams.bind(this); // make api call for data
+        this.createResultBodies = this.createResultBodies.bind(this); // create HTML for each post in an array, according to type;
         this.findPostIndexInArrayById = this.findPostIndexInArrayById.bind(this);
     }
 
@@ -28,23 +28,45 @@ class Home extends React.Component {
     default(chance) {
         // randomly show these tags on startup:
         // puppy - for pictures; text - for anything that might pop up; audio - for audio/video file embeds;
-        let rando = '';
         switch (chance) {
             case 1:
-                rando = 'puppy';
+                this.setState({searchTag: 'puppy'});
                 break;
             case 2:
-                rando = 'text';
+                this.setState({searchTag: 'text'});
                 break;
             case 3:
-                rando = 'audio';
+                this.setState({searchTag: 'audio'});
                 break;
         }
-        fetch(`/api/tag/${rando}`)
-            .then(res => res.json())
-            .then(data => {
-                this.createResultBodies(data);
-            });
+        this.searchWithParams()
+    }
+
+    searchWithParams() {
+        // clear state.searchResults before loading new search results;
+        this.setState({searchResults: []});
+        // search by blog name
+        if (this.state.searchBlog.length && !this.state.searchTag.length) {
+            fetch(`/api/blog/${this.state.searchBlog}`)
+                .then(res => res.json())
+                .then(data => {
+                    this.createResultBodies(data);
+                });
+            // search by blog & tag
+        } else if (this.state.searchBlog.length && this.state.searchTag.length) {
+            fetch(`/api/blog/${this.state.searchBlog}/${this.state.searchTag}`)
+                .then(res => res.json())
+                .then(data => {
+                    this.createResultBodies(data);
+                });
+            // search by tag
+        } else if (!this.state.searchBlog.length && this.state.searchTag.length) {
+            fetch(`/api/tag/${this.state.searchTag}`)
+                .then(res => res.json())
+                .then(data => {
+                    this.createResultBodies(data);
+                });
+        }
     }
 
     createResultBodies(postsArray) {
@@ -98,32 +120,7 @@ class Home extends React.Component {
         this.setState({[name]: value});
     }
 
-    searchWithParams() {
-        // clear state.searchResults before loading new search results;
-        this.setState({searchResults: []});
-        // search by blog name
-        if (this.state.searchBlog.length && !this.state.searchTag.length) {
-            fetch(`/api/blog/${this.state.searchBlog}`)
-                .then(res => res.json())
-                .then(data => {
-                    this.createResultBodies(data);
-                });
-        // search by blog & tag
-        } else if (this.state.searchBlog.length && this.state.searchTag.length) {
-            fetch(`/api/blog/${this.state.searchBlog}/${this.state.searchTag}`)
-                .then(res => res.json())
-                .then(data => {
-                    this.createResultBodies(data);
-                });
-        // search by tag
-        } else if (!this.state.searchBlog.length && this.state.searchTag.length) {
-            fetch(`/api/tag/${this.state.searchTag}`)
-                .then(res => res.json())
-                .then(data => {
-                    this.createResultBodies(data);
-                });
-        }
-    }
+
 
     clickHandlerAdd(event) {
         // find this post in state.searchResults
