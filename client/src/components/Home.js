@@ -164,10 +164,10 @@ class Home extends React.Component {
         let searchResultsBody = this.state.searchResults.map(item => {
             return (
                 <div key={item.id} className="each-search-result row">
-                    <div className="each-search-result-content col-sm-8">
+                    <div className="each-search-result-content col-md-8">
                         {Parser(item.body)}
                     </div>
-                    <div className="each-search-result-button-area col-sm-3">
+                    <div className="each-search-result-button-area col-md-3">
                         <button id={item.id} className="btn btn-add btn-lg btn-success" onClick={this.clickHandlerAdd}>Add</button>
                         <p>{item.type}</p>
                     </div>
@@ -181,10 +181,10 @@ class Home extends React.Component {
             favPostsBody = this.state.favoritePosts.map(item => {
                 return (
                     <div key={item.id} className="each-fav-post row">
-                        <div className="each-fav-post-content col-sm-8">
+                        <div className="each-fav-post-content col-md-8">
                             {Parser(item.body)}
                         </div>
-                        <div className="each-fav-post-button-area col-sm-3">
+                        <div className="each-fav-post-button-area col-md-3">
                             <button id={item.id} className="btn btn-lg btn-danger" onClick={this.clickHandlerRemove}>Remove</button>
                             <p>{item.type}</p>
                         </div>
@@ -197,14 +197,14 @@ class Home extends React.Component {
             <React.Fragment>
                 <div className="my-container">
                     {/*left-col: search & results*/}
-                    <div className="col col-sm-6 col-search-comp">
+                    <div className="col col-md-6 col-search-comp">
                         {/*Search Bars*/}
                         <div className="row section-search">
-                            <div className="col-sm-6 search-by">
+                            <div className="col-md-6 search-by">
                                 <h3>Blog Name:</h3>
                                 <input className="search-input search-blog" type="text" name="searchBlog" placeholder="ex: peacecorps" value={this.state.searchBlog} onChange={this.inputHandler}/>
                             </div>
-                            <div className="col-sm-6 search-by">
+                            <div className="col-md-6 search-by">
                                 <h3>Tag:</h3>
                                 <input className="search-input search-tag" type="text" name="searchTag" placeholder="ex: gif" value={this.state.searchTag} onChange={this.inputHandler} />
                                 <button className="btn btn-lg btn-primary btn-search" onClick={this.searchWithParams}>Search</button>
@@ -217,7 +217,7 @@ class Home extends React.Component {
                     </div>
 
                     {/*right-col: fav posts*/}
-                    <div className="col col-sm-6 col-favorites-comp">
+                    <div className="col col-md-6 col-favorites-comp">
                         <div className="row section-fav-posts">
                             <div className="favorites-header">
                                 <h2>Favorites:</h2>
