@@ -31,7 +31,7 @@ class Home extends React.Component {
         // puppy - for pictures; text - for anything that might pop up; audio - for audio/video file embeds;
         switch (chance) {
             case 1:
-                this.setState({searchTag: 'puppy'});
+                this.setState({searchTag: 'pup'});
                 break;
             case 2:
                 this.setState({searchTag: 'text'});
@@ -101,9 +101,9 @@ class Home extends React.Component {
                     createBody = `<p className="post-single-post">${title}<br />${audio_caption}<br />${audio_embed}  <br />(<a href=${i.source_url} target="_blank">Link</a>)</p>`;
                     break;
                 case 'video':
-                    let video_caption = i.caption ? i.caption : '';
+                    // let video_caption = i.caption ? i.caption : '';
                     let video_embed = i.player[0] ? i.player[0].embed_code : '';
-                    createBody = `<p>${video_caption}<br />${video_embed}</p>`;
+                    createBody = `<div className="post-single-post">${video_embed}</div>`;
                     break;
                 case 'answer':
                     createBody = `<p className="post-single-post">Q: ${i.question}<br />A: ${i.answer}</p>`;
