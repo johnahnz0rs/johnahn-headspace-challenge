@@ -81,24 +81,24 @@ class Home extends React.Component {
                     createBody = `<div className="post-single-post">${i.body}</div>`;
                     break;
                 case 'photo':
-                    createBody = `<p><img src=${i.photos[0].alt_sizes[0].url} alt='' /></p>`;
+                    createBody = `<p className="post-single-post"><img src=${i.photos[0].alt_sizes[0].url} alt='' /></p>`;
                     break;
                 case 'quote':
-                    createBody = `<h4>${i.text}</h4>`;
+                    createBody = `<h4 className="post-single-post">${i.text}</h4>`;
                     break;
                 case 'link':
                     let blurb = i.excerpt ? i.excerpt : '';
                     let pic = i.photos ? i.photos[0].original_size.url : '';
-                    createBody = `<h3>${i.title}</h3><img alt="" src=${pic} /> <p>${blurb}<br />(<a href=${i.url} target="_blank">Link</a>)</p>`;
+                    createBody = `<div className="post-single-post"><h3>${i.title}</h3><img alt="" src=${pic} /><p>${blurb}<br />(<a href=${i.url} target="_blank">Link</a>)</p></div>`;
                     break;
                 case 'chat':
-                    createBody = i.body;
+                    createBody = `<div className="post-single-post">${i.body}</div>`;
                     break;
                 case 'audio':
                     let title = i.source_title ? i.source_title : '';
                     let audio_caption = i.caption ? i.caption : '';
                     let audio_embed = i.embed ? i.embed : '';
-                    createBody = `<p>${title}<br />${audio_caption}<br />${audio_embed}  <br />(<a href=${i.source_url} target="_blank">Link</a>)</p>`;
+                    createBody = `<p className="post-single-post">${title}<br />${audio_caption}<br />${audio_embed}  <br />(<a href=${i.source_url} target="_blank">Link</a>)</p>`;
                     break;
                 case 'video':
                     let video_caption = i.caption ? i.caption : '';
@@ -106,7 +106,7 @@ class Home extends React.Component {
                     createBody = `<p>${video_caption}<br />${video_embed}</p>`;
                     break;
                 case 'answer':
-                    createBody = `<p>Q: ${i.question}<br />A: ${i.answer}</p>`;
+                    createBody = `<p className="post-single-post">Q: ${i.question}<br />A: ${i.answer}</p>`;
                     break;
             }
             returnedPosts.push({type: i.type, id: i.id, body: createBody});
