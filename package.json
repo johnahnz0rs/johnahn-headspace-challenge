@@ -2,12 +2,16 @@
   "name": "johnahn-headspace-challenge",
   "version": "1.0.0",
   "scripts": {
-    "client": "cd client && yarn start",
+    "client": "cd client && npm start",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\""
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "path": "^0.12.7",
+    "tumblr.js": "^2.0.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.0"

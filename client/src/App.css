@@ -1,32 +1,86 @@
-.App {
-  text-align: center;
+/* Home.js */
+/*.test-class {*/
+    /*background-color: lightblue;*/
+    /*color: white;*/
+    /*border: 3px solid yellow;*/
+    /*padding: 10px;*/
+    /*display: inline-block;*/
+/*}*/
+.col-search-comp {
+    border-right: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 20px;
 }
+    .section-search {
+        border-bottom: 1px solid black;
+        padding: 20px;
+    }
+    .section-search-results {
+        padding: 20px;
+    }
+.col-favorites-comp {
+    display: inline-block;
+    vertical-align: top;
+}
+    .section-fav-posts {
+        padding: 10px;
+    }
+/* end Home.js */
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Search.js */
+.search-by {
+    display: inline-block;
 }
+.search-input {
+    display: block;
+    vertical-align: top;
+    margin: 20px 0;
+}
+.search-blog {
+    vertical-align: top;
+}
+.search-tag {
+    vertical-align: top;
+}
+.btn-search {
+    padding: 3px 40px;
+}
+/* end Search.js */
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* SearchResults.js */
+.each-search-result {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
 }
+.each-search-result-content {
+
+}
+.img-search-result {
+    width: 100%;
+}
+/* end SearchResults.js */
+
+
+
+/* FavoritePosts.js */
+.each-fav-post {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px 10px;
+    padding: 10px;
+}
+.each-fav-post-content {
+
+}
+.img-fav-post {
+    width: 100%;
+}
+/* end FavoritePosts.js */
+
+
